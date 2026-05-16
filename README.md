@@ -25,7 +25,7 @@ Login into Netbox (http://localhost:8080) and create **Config Context** named `p
             },
             {
                 "job": "etcd-exporter",
-                "port": 8200
+                "port": 2379
             }
         ],
         "postgresql": [
@@ -35,7 +35,7 @@ Login into Netbox (http://localhost:8080) and create **Config Context** named `p
             },
             {
                 "job": "postgresql-exporter",
-                "port": 8200
+                "port": 9187
             }
         ],
         "kafka": [
@@ -45,11 +45,11 @@ Login into Netbox (http://localhost:8080) and create **Config Context** named `p
             },
             {
                 "job": "kafka-exporter",
-                "port": 8200
+                "port": 9308
             },
             {
                 "job": "kafka-jmx-exporter",
-                "port": 8201
+                "port": 9404
             }
         ]
     }
