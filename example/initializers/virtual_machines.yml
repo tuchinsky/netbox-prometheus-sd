@@ -29,5 +29,5 @@
   status: active
   tenant: Default
   custom_field_data:
-    service: kafka-common-bus
-    role: kafka
+    service: vault
+    role: vault

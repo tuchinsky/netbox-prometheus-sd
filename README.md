@@ -38,18 +38,17 @@ Login into Netbox (http://localhost:8080) and create **Config Context** named `p
                 "port": 9187
             }
         ],
-        "kafka": [
+        "vault": [
             {
-                "job": "node-exporter",
-                "port": 9100
-            },
-            {
-                "job": "kafka-exporter",
-                "port": 9308
-            },
-            {
-                "job": "kafka-jmx-exporter",
-                "port": 9404
+                "job": "vault-exporter",
+                "scheme": "https",
+                "metrics_path": "/v1/sys/metrics",
+                "params": {
+                    "format": [
+                        "prometheus"
+                    ]
+                },
+                "port": 8200
             }
         ]
     }

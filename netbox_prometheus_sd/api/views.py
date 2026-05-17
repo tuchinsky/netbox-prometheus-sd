@@ -57,6 +57,9 @@ class PrometheusTargetsView(APIView):
         for exporter in exporters:
             job = exporter['job']
             port = exporter['port']
+            scheme = exporter.get('scheme', 'http')
+            metrics_path = exporter.get('metrics_path', '/metrics')
+            params = exporter.get('params', {})
 
             if TARGET_SOURCE == 'dns':
                 address = name
@@ -74,6 +77,19 @@ class PrometheusTargetsView(APIView):
                 "__meta_netbox_name": name,
                 "__meta_netbox_type": obj_type,
             }
+
+            # change scheme if it not default (http)
+            if scheme != 'http':
+                labels['__scheme__'] = scheme
+
+            # change metrics path if it not default (/metrics)
+            if metrics_path != '/metrics':
+                labels['__metrics_path__'] = metrics_path
+
+            # params to scrape request
+            for param_name, param_values in params.items():
+                if param_values:
+                    labels[f'__param_{param_name}'] = param_values[0]
 
             # add all custom fields as labels with prefix '__meta_netbox_cf_'
             for cf_key, cf_value in cf_data.items():
