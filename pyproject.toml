@@ -1,5 +1,5 @@
 [project]
-name = "netbox-prometheus-sd"
+name = "netbox-plugin-prometheus-http-sd"
 dynamic = ["version"]
 description = "A Netbox plugin to export targets for Prometheus HTTP service discovery"
 readme = "README.md"
@@ -13,7 +13,7 @@ requires-python = ">=3.8"
 dependencies = []
 
 [project.urls]
-Repository = "https://github.com/tuchinsky/netbox-prometheus-sd"
+Repository = "https://github.com/tuchinsky/netbox-plugin-prometheus-http-sd"
 
 [build-system]
 requires = ["setuptools>=61", "wheel", "setuptools-scm>=8"]
